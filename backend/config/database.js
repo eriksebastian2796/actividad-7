@@ -18,11 +18,13 @@ const sequelize = new Sequelize(
   }
 );
 
-// funcion asincrona para probar la conexion
+// Función asíncrona para probar conexión y crear las tablas
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
-    console.log('Conexión a MySQL establecida, una genialidad tetón');
+    // Esta línea crea automáticamente las tablas en Clever Cloud si no existen
+    await sequelize.sync(); 
+    console.log('Conexión a MySQL establecida y tablas sincronizadas.');
   } catch (error) {
     console.error('No se pudo conectar a la base de datos:', error);
   }
