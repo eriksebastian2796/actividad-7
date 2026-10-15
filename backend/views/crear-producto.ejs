@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head.ejs') %>
+    
+</head>
+<body>
+    <%- include('partials/header.ejs') %> 
+    
+    <main class="container">
+        <div class="form-container-custom animate__animated animate__fadeIn">
+            <div class="d-flex justify-content-center mb-4">
+                <h2 class="header-texto-main fs-2 m-0">Añadir Nuevo Producto</h2>
+                
+            </div>
+            <hr class="text-muted">
+
+            <% if (typeof error !== 'undefined' && error){ %>
+                <div class="alert alert-danger" role="alert"><%= error %></div>
+            <%} %>
+
+            <form class="row g-3" action="/admin/productos/crear" method="post" enctype="multipart/form-data">
+                
+                <div class="col-md-12">
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ej: Spider-Man #1">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select class="form-select" name="categoria" id="categoria" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="Comic">Cómic</option>
+                        <option value="Figura">Figura de Acción</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="stock" class="form-label">Stock Inicial</label>
+                    <input type="number" class="form-control" name="stock" id="stock" min="0" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="precio" class="form-label">Precio ($)</label>
+                    <input type="number" class="form-control" id="precio" name="precio" step="0.01" min="0" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="imagen" class="form-label">Imagen de Portada</label>
+                    <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="descripcion" class="form-label">Descripción Detallada</label>
+                    <textarea class="form-control" name="descripcion" id="descripcion" rows="4" placeholder="Detalles del producto..."></textarea>
+                </div>
+
+                <div class="col-12 text-end mt-4">
+                    <button type="submit" id="btn-continuar-tester" class="btn btn-success px-4">
+                        <i class="bi bi-save"></i> Guardar Producto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="/admin/js/theme.js"></script>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
+</html>

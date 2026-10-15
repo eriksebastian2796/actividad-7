@@ -1,0 +1,40 @@
+<header>
+    <div class="div-header d-flex align-items-center justify-content-between px-4 mx-auto shadow-sm">
+        
+        <div class="d-flex align-items-center">
+            <img src="/admin/img/logo_dark_admin.svg" alt="Logo Admin" height="60" class="d-block me-3 logo-responsive">
+            <div class="d-flex flex-column">
+                <h1 class="header-texto-main m-0" style="font-size: 1.5rem;">LOS VIGILANTES</h1>
+                <span class="header-texto-secundario">Gestión de Inventario</span>
+            </div>
+        </div>
+
+        <nav class="d-none d-md-block">
+            <ul class="nav justify-content-center align-items-center gap-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/dashboard">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/productos/crear">
+                        <i class="bi bi-plus-circle"></i> Nuevo Producto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/" target="_blank">
+                        <i class="bi bi-shop"></i> Ver Tienda
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center gap-3">
+             <button id="theme-toggle" class="btn" aria-label="Cambiar Modo oscuro">
+                <i class="bi bi-moon-stars-fill fs-5"></i>
+            </button>
+            <form action="/admin/logout" method="POST" class="m-0">
+                <a class="nav-link" href="/admin/login"><i class="bi bi-box-arrow-right"></i>Salir</a>
+            </form>
+        </div>
+    </div>
+</header>

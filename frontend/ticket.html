@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo_light.svg" type="image/x-icon">
+    <title>Ticket de compra</title>
+    <!--link de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--Link de fuente Orbitron-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <!---CSS alojado en la carpeta public-->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="d-flex flex-column navbar-cliente">
+            <div class="position-relative  p-10 d-flex text-center align-items-center">
+                <div class="me-auto">
+                        <img src="./img/logo_dark.svg" alt="Logo" height="100" class="d-block logo-responsive"> 
+                </div>
+                <div class="position-absolute start-50 top-50 translate-middle d-flex flex-column text-center align-items-center">
+                    <h1 class="header-texto-main display-6">Los Vigilantes</h1>
+                    <span class="header-texto-secundario">Tienda de Cómics y Figuras de Acción</span>
+                </div>
+            </div>
+            <div class="d w-100 mt-2 border-top pt-2"> 
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./carrito.html">Carrito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./ticket.html">Ticket</a>
+                    </li>
+                </ul>
+            </div>
+             <div class="botones-navbar position-absolute top-0 end-0 m-2 d-flex align-items-center" style="z-index: 1000;">
+                    <button id="theme-toggle" class="btn me-2" aria-label="Cambiar Modo oscuro">
+                        <i class="bi bi-moon-stars-fill fs-5"></i>
+                    </button>
+                    
+                </div>
+        </nav>
+    </header>
+    <main class=" d-flex align-items-center justify-content-center main-ticket">
+        <div class="card-inicio p-4 shadow-lg textreveal-card card" style="max-width: 600px; width: 600px;">
+            <div class="card-body">
+                <h2 class="card-title header-texto-main text-center mb-4">Ticket de Compra</h2>
+
+                <p class="mb-2">
+                    <strong>Cliente:</strong> <span id="nameTicket"></span>
+                    <strong>Fecha:</strong> <span id="fechaCompleta"></span>
+                    <strong>- Tienda Los Vigilantes</strong>
+                </p>
+
+                <table class="table table-bordered table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Producto</th>
+                            <th id="categoria-producto">Tipo</th>
+                            <th>Precio</th>
+                            <th>Cant.</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticket-body" ></tbody>
+                    <tfoot>
+                        <tr>
+                        <th colspan="4" class="text-end">TOTAL</th>
+                        <th id="ticket-total">$0.00</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="text-center d-flex justify-content-center gap-3 mt-4">
+                    <button class="btn btn-dark" onclick="imprimirTicket()">Descargar Ticket</button>
+                    <a href="../index.html" onclick="eliminarDelLocalStorage('nombreCliente'); eliminarDelLocalStorage('carrito');" class="btn btn-dark">Salir</a>
+                </div>
+
+                
+            </div>
+        </div>
+    </main>
+    <footer class="footer-legal text-dark border-top">
+        <div class="container text-center">
+                <div class="nombre-equipo">
+                    <strong>
+                        <a href="https://github.com/deltron9/11011.TP/" target="_blank" rel="noopener noreferrer">Equipo 11011</a>
+                    </strong>
+                </div>
+                <div class="nombre-creadores">
+                    <strong id="integrantes-equipo">
+                        <a href="https://www.instagram.com/deltron_dln/" target="_blank">Cristian Iván Collante</a>
+                        - 
+                        <a href="https://www.instagram.com/joe_monzon27/" target="_blank">Alan Joel Monzón</a>
+                    </strong>
+                </div>
+            <div class="copyright-texto mt-3 small text-secondary">
+                <p>
+                &copy; Copyright Los Vigilantes - 2025. Todos los derechos reservados. 
+                Defensa del consumidor. Para reclamos <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" rel="Defensa al consumidor">Hacé click acá.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/theme.js"></script>
+    <script src="./js/ticket.js"></script>
+</body>
+</html>

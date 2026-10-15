@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - <%= message %></title>
+    <%- include('partials/head.ejs') %>
+</head>
+<body>
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+
+            <h1 class="display-4 fw-bold text-black">ERROR 404</h1>
+
+            <h2 class="mb-4">¡Página No Encontrada!</h2>
+
+            <p class="lead mb-8 text-black">
+                Lo sentimos, no pudimos encontrar la página que estás buscando.
+                Parece que te mandaste solo en la url.
+            </p>
+
+            <a href="/" class="btn btn-primary btn-lg">
+                <i class="bi bi-house-door-fill"></i> Volver al Inicio
+            </a>
+            
+            <p class="mt-4">Si pensas que esto es un chamuyo, por favor contacta a Ricardo Plazas.</p>
+
+        </div>
+    </div>
+</div>
+<script src="/admin/js/theme.js"></script>
+</body>
+</html>

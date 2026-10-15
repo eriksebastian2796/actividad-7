@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head.ejs') %>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main class="container my-5">
+        <div class="form-container-custom animate__animated animate__fadeIn">
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="header-texto-main fs-4 m-0">Modificar Producto</h2>
+            </div>
+            <hr class="text-muted">
+
+            <% if (typeof error !== 'undefined' && error){ %>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <div><%= error %></div>
+                </div>
+            <% } %>
+
+            <form class="row g-3" action="/admin/productos/modificar/<%= producto.id %>" method="POST" enctype="multipart/form-data">
+
+                <div class="col-12">
+                    <span class="badge bg-secondary">ID: <%= producto.id %></span>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="<%= producto.nombre %>" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select class="form-select" name="categoria" id="categoria" required>
+                        <option value="" disabled>Selecciona una opción</option>
+                        <option value="Comic" <%= producto.categoria === 'Comic' ? 'selected' : '' %>>Cómic</option>
+                        <option value="Figura" <%= producto.categoria === 'Figura' ? 'selected' : '' %>>Figura</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="stock" class="form-label">Stock Actual</label>
+                    <input type="number" class="form-control" name="stock" id="stock" value="<%= producto.stock %>" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="precio" class="form-label">Precio ($)</label>
+                    <input type="number" class="form-control" id="precio" name="precio" value="<%= producto.precio %>" step="0.01" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="imagen" class="form-label">Imagen del producto</label>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="/admin/producto/imagen/<%= producto.id %>" alt="Imagen Actual" class="rounded border shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                        <input class="form-control" type="file" id="imagen" name="imagen" accept="image/*">
+                    </div>
+                    <div class="form-text text-muted">Dejar vacío para conservar la imagen actual.</div>
+                </div>
+
+                <div class="col-12">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" name="descripcion" id="descripcion" rows="4"><%= producto.descripcion %></textarea>
+                </div>
+
+                <div class="col-12 text-end mt-4">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-save"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="/js/theme.js"></script>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
