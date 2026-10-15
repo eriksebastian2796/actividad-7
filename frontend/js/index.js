@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             localStorage.setItem('clienteNombre', nombreUsuario); //guardado de nombre en localstorage
-            window.location.href = '../productos.html'; //redireccionamiento para ver los productos
+            window.location.href = 'productos.html'; //redireccionamiento para ver los productos
         });
     }
 

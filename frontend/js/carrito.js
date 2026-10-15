@@ -261,7 +261,7 @@ async function procederCompra() {
     const nombreUsuario = localStorage.getItem('clienteNombre'); 
     if(!nombreUsuario){
         alert('Debes registrar tu nombre para comprar');
-        window.location.href = '/index.html'; 
+        window.location.href = 'index.html'; 
         return;
     }
 
